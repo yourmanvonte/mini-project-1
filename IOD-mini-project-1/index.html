@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gidole&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+
+  <!-- This is a a simple HTML file for a random quote generator. It includes a button to generate a new quote and displays the quote, its author, and image of the person. The JavaScript file is linked at the end of the body to ensure it loads after the HTML content. -->
+  <body>
+    <header>
+      <h1>Timeless Quote Generator</h1>
+    </header>
+    <main>
+      <section class="intro">
+        <h2>Welcome to the history quote generator</h2>
+        <p>
+          <b>Timeless Quote Generator is more than just your ordinary display of
+          quotes. Timeless Quote Generator allows you to expand on the
+          individual and the history behind them. Timeless Quote Generator is
+          there to broaden your knowledge of all forms of quotes, being able to
+          use them within conversation, and develop a deeper understanding of
+          some of history's greatest minds.
+          </b>
+        </p>
+      </section>
+    </main>
+    <button id="generate-quote">Generate Quote</button>
+    <div class="container">
+      <div id="quote-image">
+        <img id="image" src="" alt="Quote Image" />
+      </div>
+      <div id="quote-container">
+        <p id="quote"></p>
+        <p id="author"></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
