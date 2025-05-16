@@ -1,29 +1,66 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #0d68df;
+/* Resets the default browser styles of all elements */
+* {
     margin: 0;
     padding: 0;
-    height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gidole', sans-serif; /* Added font-family from Google */
+    background-color: #e7edbb6c;
+    margin: 0;
+    min-height: 100vh;
+    padding: 10px;
+    position: relative; /* Added to position the pseudo-element */
+    overflow: hidden; /* Prevents scrollbars from appearing */
+    z-index: 0; /* Added to ensure the pseudo-element is behind the content for the animation */
+}
+
+.intro {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    text-align: center;
 }
 
 h1 {
     text-align: center;
-    color: rgba(208, 202, 202, 0.97);
+    color: rgba(31, 61, 170, 0.97);
     font-family: 'Gidole', sans-serif;
+    animation: scaleUp 1.2s ease-out forwards; /* Animation for scaling up */
+    letter-spacing: 8px;
+}
+
+h2 {
+    margin: 5px 0;
+}
+
+header {
+    position: sticky; 
+    top: 0;
+    padding: 10px;
+    z-index: 1000; /* Ensures header is above other content */
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px; /* Adjusted max-width for better layout */
+    margin: 0 auto;
+    padding: 20px;
 }
 
 p{
     word-spacing: 8px;
     font-family: 'Gidole', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
  }
 
 section {
-    margin: 20px;
     padding: 20px;
     font-family: 'Gidole', sans-serif;
     background-color: #fff;
@@ -44,9 +81,145 @@ button {
     border: black solid 1px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+    cursor: pointer; /* Added cursor pointer */
     font-size: 16px;
     width: 200px;
     height: 50px;
     font-size: 20px;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#author {
+    margin-bottom: 10px;
+}
+
+#history {
+    margin-top: 10px;
+}
+
+#quote, #author {
+    font-weight: bold;
+}
+
+#quote-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0; /* Initially hidden */
+}
+
+#quote-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background: linear-gradient(to bottom right, #669999 23%, #3366cc 100%);
+    display: none; /* Initially hidden */
+}
+
+/* Animation for fading in the image */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Calls the animation on image */
+img.animated {
+    animation: fadeInScale 0.5s ease forwards;
+}
+
+#quote-image img {
+    opacity: 0; 
+}
+
+/* Styling for the cloudy background animation */
+body::before {
+    content: ""; /* Empty content for the pseudo-element */
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 200%; 
+    height: 200%;
+    background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat; /* Background pattern */
+    animation: moveStars 60s linear infinite; /* Animation for moving the background */
+    opacity: 0.4; /* Adjust opacity for a subtle effect */
+    z-index: -1; /* Ensures the background is behind all content */
+    pointer-events: none; 
+}
+
+/* Animation for moving the background */
+@keyframes moveStars {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-500px, -500px);
+    }
+}
+
+.page-container, .container, .intro {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animation for scaling up the header */
+/* This animation will make the header scale up from 0.8 to 1 */
+@keyframes scaleUp {
+    0% {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.like-button {
+    position: absolute;
+    bottom: 10px; /* Adjusted to be above the footer */
+    right: 10px; /* Positioned at the bottom right corner */
+    background-color: #e63946;
+    border: none;
+    border-radius: 30%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.like-button:hover {
+    background-color: #d62828;
 }
