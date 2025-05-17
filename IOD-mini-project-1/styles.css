@@ -1,4 +1,3 @@
-/* Resets the default browser styles of all elements */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +8,8 @@ body {
     font-family: 'Gidole', sans-serif; /* Added font-family from Google */
     background-color: #e7edbb6c;
     margin: 0;
+    width: 100%;
+    max-width: 90vw;
     min-height: 100vh;
     padding: 10px;
     position: relative; /* Added to position the pseudo-element */
@@ -67,11 +68,16 @@ section {
     border-radius: 5px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
     text-align: center;
-    width: 500px;
+    width: 100%; /* Full width for sections */
+    max-width: 90vw; /* Added max-width for better layout */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.intro, .container {
+    width: 100%; /* Full width for intro and container */
 }
 
 button {
@@ -83,7 +89,7 @@ button {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     cursor: pointer; /* Added cursor pointer */
     font-size: 16px;
-    width: 200px;
+    width: 100%; /* Full width for buttons */
     height: 50px;
     font-size: 20px;
 }
@@ -95,12 +101,13 @@ button {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 90vw;
     margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
 }
 
@@ -117,6 +124,7 @@ button {
 }
 
 #quote-image img {
+    width: 100%; /* Full width for the image */
     max-width: 300px;
     height: auto;
     border-radius: 10px;
@@ -222,4 +230,45 @@ body::before {
 
 .like-button:hover {
     background-color: #d62828;
+}
+
+@media (max-width: 768px) {
+    body {
+        width: 100%;
+        max-width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .page-container, .container, .intro, .quote-box, section {
+        width: 100%;
+        padding: 5px;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        letter-spacing: 4px;
+    }
+
+    p, h2 {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 6px;
+        height: 40px;
+    }
+
+    .like-button {
+        position: static;
+        margin: 10px auto 0 auto;
+    }
+
+    #quote-image img {
+        max-width: 90vw;
+        height: auto;
+    }
 }
