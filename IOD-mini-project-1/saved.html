@@ -19,19 +19,19 @@
     const container = document.getElementById("saved-quotes");
     const savedQuotes = JSON.parse(localStorage.getItem("savedQuotes")) || []; //Retrieve saved quotes from local storage
 
-    // Checks if there are any saved quotes
+    // Checks if there are any saved quotes and displays them
     if (savedQuotes.length === 0) {
-      container.innerHTML = "<p>No saved quotes yet.</p>"; // Display message if no quotes are saved
+      container.innerHTML = "<p>No saved quotes yet.</p>"; 
     } else {
       savedQuotes.forEach((item, index) => { 
-        const quoteEl = document.createElement("div"); // Create a new div for each saved quote
-        quoteEl.className = "saved-quote"; // Assigns a class name to that div
+        const quoteEl = document.createElement("div"); 
+        quoteEl.className = "saved-quote"; 
         quoteEl.innerHTML = `
           <p>"${item.quote}"</p>
           <p><strong>${item.author}</strong></p>
           <hr/> 
-        `; // Updates the HTML file with the div content containing the quote and author
-        container.appendChild(quoteEl); // Appends the new div to the container
+        `; 
+        container.appendChild(quoteEl); 
       });
     };
   </script>
