@@ -1,4 +1,4 @@
-# IOD Mini Project One & 2
+# IOD Mini Project One
 
 This is my Timeless Quote Generator. It is a starter API that will be used to generate random quotes of certain historians. 
 
